@@ -1,5 +1,5 @@
 function openAg(url, ag) {
-  localStorage.setItem("currentAg", ag)
+  localStorage.setItem("currentAg", ag);
   
   agU = Ultraviolet.codec.xor.encode(url);
   localStorage.setItem('agUrl', agU);
@@ -302,3 +302,26 @@ function crowdRun3d() {
 function worldsHardestGm() {
   openAg('https://assets.surfdoge.pro/assets/worldshardestgm.html');
 }
+
+/* Include section */
+function loadIncludeSection() {
+  const container = document.getElementById('inc-container');
+  if (!container) return;
+
+  const button = document.createElement('button');
+  button.textContent = 'Google Button';
+  button.onclick = () => window.location.href = 'https://www.google.com';
+
+  const image = document.createElement('img');
+  image.src = "/assets/img/geforcenow.webp";
+  image.alt = "Google Button";
+
+  container.appendChild(button);
+  container.appendChild(image);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Call functions to load games and apps
+  loadIncludeSection();
+  // Add calls to other loading functions as needed
+});
