@@ -158,7 +158,7 @@ function cookieClicker() {
 }
 
 function rBowl() {
-  document.title = 'Ezic | V9';
+  document.title = 'Doge | V4';
   var cloakcheckScript = document.createElement("script");
   cloakcheckScript.src = "/assets/js/cloak.js";
   document.head.appendChild(cloakcheckScript);
@@ -302,8 +302,3 @@ function crowdRun3d() {
 function worldsHardestGm() {
   openAg('https://assets.surfdoge.pro/assets/worldshardestgm.html');
 }
-/*other creators*/
-
-function imb() {
-  openAg('https://google.com');
-
