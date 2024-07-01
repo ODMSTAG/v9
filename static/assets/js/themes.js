@@ -88,7 +88,9 @@ function live() {
         document.body.style.backgroundSize = "cover";
     }
 
-    if (selectedTheme === null && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+    if (selectedTheme === 'japanesematrix' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
+        applyJapaneseMatrixTheme();
+    } else if (selectedTheme === null && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
         var containers = document.querySelectorAll('div:not(#particles-js):not(#settingsContainer):not(#contextItem):not(#contextMenu):not(#cloak):not(.themesExcluded)');
         containers.forEach(function(container) {
             container.style.backgroundColor = 'rgba(19, 34, 48, 0.8)'; // Light Blue
@@ -136,11 +138,11 @@ function applyJapaneseMatrixTheme() {
         wavecolor: {
             r: 125,
             g: 52,
-            b: 253
+            b: 253,
         },
         rainbowSpeed: 0.5,
         rainbow: true,
-        matrixspeed: 50
+        matrixspeed: 50,
     };
 
     var c = document.getElementById("c");
@@ -152,14 +154,14 @@ function applyJapaneseMatrixTheme() {
     c.height = window.innerHeight;
     c.width = window.innerWidth;
 
-    var konkani = "゠アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレワヰヱヲンヺ・ーヽヿ0123456789";
+    var konkani =
+        "゠アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレワヰヱヲンヺ・ーヽヿ0123456789";
     var characters = konkani.split("");
     var font_size = 14;
     var columns = c.width / font_size;
     var drops = [];
 
-    for (var x = 0; x < columns; x++)
-        drops[x] = 1;
+    for (var x = 0; x < columns; x++) drops[x] = 1;
 
     function draw() {
         ctx.fillStyle = "rgba(0,0,0, 0.05)";
@@ -174,13 +176,13 @@ function applyJapaneseMatrixTheme() {
             var text = characters[Math.floor(Math.random() * characters.length)];
 
             if (root.rainbow) {
-                hue += (hueFw) ? 0.01 : -0.01;
+                hue += hueFw ? 0.01 : -0.01;
                 var rr = Math.floor(127 * Math.sin(root.rainbowSpeed * hue + 0) + 128);
                 var rg = Math.floor(127 * Math.sin(root.rainbowSpeed * hue + 2) + 128);
                 var rb = Math.floor(127 * Math.sin(root.rainbowSpeed * hue + 4) + 128);
-                ctx.fillStyle = 'rgba(' + rr + ',' + rg + ',' + rb + ')';
+                ctx.fillStyle = "rgba(" + rr + "," + rg + "," + rb + ")";
             } else {
-                ctx.fillStyle = 'rgba(' + root.wavecolor.r + ',' + root.wavecolor.g + ',' + root.wavecolor.b + ')';
+                ctx.fillStyle = "rgba(" + root.wavecolor.r + "," + root.wavecolor.g + "," + root.wavecolor.b + ")";
             }
 
             ctx.fillText(text, i * font_size, drops[i] * font_size);
@@ -212,11 +214,12 @@ function applyJapaneseMatrixTheme() {
 
     function hexToRgb(hex) {
         var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-            r: parseInt(result[1], 16),
-            g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16)
-        } : null;
+        return result ?
+            {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16),
+            } : null;
     }
 }
 
