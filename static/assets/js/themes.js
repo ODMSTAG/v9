@@ -1,14 +1,5 @@
 function live() {
-    var bgUrl = localStorage.getItem('bgUrl');
-    var selectedTheme = localStorage.getItem('selectedOption');
-
-    if (selectedTheme === 'japanesematrix' && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
-        applyJapaneseMatrixTheme();
-    } else if (selectedTheme === null && (bgUrl === null || bgUrl === 'none' || bgUrl === '')) {
-        applyJapaneseMatrixTheme(); // Default to Japanese matrix if no theme selected
-    }
-
-    // Additional logic if needed
+    applyJapaneseMatrixTheme();
 }
 
 function applyJapaneseMatrixTheme() {
